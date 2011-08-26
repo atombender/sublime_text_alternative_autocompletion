@@ -32,3 +32,8 @@ Add something like the following to your key bindings:
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
+
+License
+-------
+
+Copyright 2011 Alexander Staubo. MIT license. See `LICENSE` file for license.

@@ -39,10 +39,16 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
   def insert_next_completion(self, position, text):
     prefix_match = re.search(r'([\w\d_]+)\Z', text[0:position], re.M | re.U)
     if prefix_match:
+      current_word_match = re.search(r'^([\w\d_]+)', text[prefix_match.start(1):], re.M | re.U)
+      if current_word_match:
+        current_word = current_word_match.group(1)
+      else:
+        current_word = None
       prefix = prefix_match.group(1)
       if self.previous_completion is None or prefix != self.previous_completion:
         self.previous_completion = None
         self.candidates = self.find_candidates(prefix, position, text)
+        self.candidates.remove(current_word)
       if self.candidates:
         edit = self.view.begin_edit()
         self.view.erase(edit, sublime.Region(prefix_match.start(1), prefix_match.end(1)))

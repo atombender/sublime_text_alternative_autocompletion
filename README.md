@@ -28,7 +28,12 @@ Add something like the following to your key bindings:
     { "keys": ["escape"], "command": "alternative_autocomplete", "context":
       [
         { "key": "num_selections", "operator": "equal", "operand": 1 },
-        { "key": "panel_visible", "operator": "equal", "operand": false },
+        { "key": "overlay_visible", "operator": "equal", "operand": false }
+      ]
+    },
+    { "keys": ["shift+escape"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
+      [
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },

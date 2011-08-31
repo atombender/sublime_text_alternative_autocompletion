@@ -32,11 +32,11 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
   candidates = []
   previous_completion = None
 
-  def run(self, edit):
+  def run(self, edit, cycle = 'next'):
     view = self.view
-    self.insert_next_completion(view.sel()[0].b, view.substr(sublime.Region(0, view.size())))
+    self.insert_completion(view.sel()[0].b, view.substr(sublime.Region(0, view.size())), cycle)
 
-  def insert_next_completion(self, position, text):
+  def insert_completion(self, position, text, cycle):
     prefix_match = re.search(r'([\w\d_]+)\Z', text[0:position], re.M | re.U)
     if prefix_match:
       current_word_match = re.search(r'^([\w\d_]+)', text[prefix_match.start(1):], re.M | re.U)
@@ -55,7 +55,11 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
         if self.previous_completion is None:
           completion = self.candidates[0]
         else:
-          completion = self.candidates[(self.candidates.index(self.previous_completion) + 1) % len(self.candidates)]
+          if cycle == 'previous':
+            direction = -1
+          else:
+            direction = 1
+          completion = self.candidates[(self.candidates.index(self.previous_completion) + direction) % len(self.candidates)]
         self.view.insert(edit, prefix_match.start(1), completion)
         self.view.end_edit(edit)
         self.previous_completion = completion

@@ -48,7 +48,8 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
       if self.previous_completion is None or prefix != self.previous_completion:
         self.previous_completion = None
         self.candidates = self.find_candidates(prefix, position, text)
-        self.candidates.remove(current_word)
+        if current_word in self.candidates:
+          self.candidates.remove(current_word)
       if self.candidates:
         edit = self.view.begin_edit()
         self.view.erase(edit, sublime.Region(prefix_match.start(1), prefix_match.end(1)))

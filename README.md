@@ -63,6 +63,11 @@ To map to the tab key:
       ]
     },
 
+Limitations
+-----------
+
+Currently does not work with multiple selections.
+
 License
 -------
 

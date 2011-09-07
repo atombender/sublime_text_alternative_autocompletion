@@ -23,7 +23,7 @@ Drop the entire folder in Sublime's `Packages` folder. You can do this using `gi
     $ cd .../Packages  # Whatever the location is
     $ git clone git://github.com/alexstaubo/sublime_text_alternative_autocompletion.git
 
-Add something like the following to your key bindings:
+To map to the escape key, like TextMate:
 
     { "keys": ["escape"], "command": "alternative_autocomplete", "context":
       [
@@ -35,6 +35,31 @@ Add something like the following to your key bindings:
       [
         { "key": "num_selections", "operator": "equal", "operand": 1 },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
+      ]
+    },
+
+To map to the tab key:
+
+    { "keys": ["tab"], "command": "alternative_autocomplete", "args": {"default": "\t"}, "context":
+      [
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
+        { "key": "overlay_visible", "operator": "equal", "operand": false }
+      ]
+    },
+    { "keys": ["shift+tab"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
+      [
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
+        { "key": "overlay_visible", "operator": "equal", "operand": false }
+      ]
+    },
+    { "keys": ["tab"], "command": "indent", "context":
+      [
+        { "key": "text", "operator": "regex_contains", "operand": "\n" }
+      ]
+    },
+    { "keys": ["shift+tab"], "command": "unindent", "context":
+      [
+        { "key": "text", "operator": "regex_contains", "operand": "\n" }
       ]
     },
 

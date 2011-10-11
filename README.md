@@ -27,24 +27,28 @@ To map to the escape key, like TextMate:
 
     { "keys": ["escape"], "command": "alternative_autocomplete", "context":
       [
+        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+escape"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
+        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
 
-To map to the tab key:
+To map to the tab key it gets a bit more complex to preserve indentation behaviour:
 
     { "keys": ["tab"], "command": "alternative_autocomplete", "args": {"default": "\t"}, "context":
       [
+        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+tab"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
+        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },

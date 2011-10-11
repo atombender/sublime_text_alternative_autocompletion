@@ -27,13 +27,11 @@ To map to the escape key, like TextMate:
 
     { "keys": ["escape"], "command": "alternative_autocomplete", "context":
       [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+escape"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
@@ -42,13 +40,11 @@ To map to the tab key:
 
     { "keys": ["tab"], "command": "alternative_autocomplete", "args": {"default": "\t"}, "context":
       [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+tab"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
         { "key": "overlay_visible", "operator": "equal", "operand": false }
       ]
     },

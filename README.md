@@ -13,7 +13,10 @@ This plugin adds an autocompletion command to Sublime Text 2 that acts similarly
 
 The plugin improves on TextMate in one respect: If no candidates are found, the plugin reverts to using a simple fuzzy, case-insensitive matching algorithm that is similar to Sublime's file/class matching algorithm. For example, typing `appc` might match `ApplicationController`.
 
-Tested with Sublime Text 2 build 2095.
+Compatibility
+-------------
+
+Tested with Sublime Text 2 build 2095 and later. The key bindings described below will work for build 2134 (and onwards, presumably).
 
 Installation
 ------------
@@ -27,14 +30,16 @@ To map to the escape key, like TextMate:
 
     { "keys": ["escape"], "command": "alternative_autocomplete", "context":
       [
-        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-        { "key": "overlay_visible", "operator": "equal", "operand": false }
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
+        { "key": "overlay_visible", "operator": "equal", "operand": false },
+        { "key": "panel_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+escape"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
-        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-        { "key": "overlay_visible", "operator": "equal", "operand": false }
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
+        { "key": "overlay_visible", "operator": "equal", "operand": false },
+        { "key": "panel_visible", "operator": "equal", "operand": false }
       ]
     },
 
@@ -42,14 +47,16 @@ To map to the tab key it gets a bit more complex to preserve indentation behavio
 
     { "keys": ["tab"], "command": "alternative_autocomplete", "args": {"default": "\t"}, "context":
       [
-        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-        { "key": "overlay_visible", "operator": "equal", "operand": false }
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
+        { "key": "overlay_visible", "operator": "equal", "operand": false },
+        { "key": "panel_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+tab"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
-        { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-        { "key": "overlay_visible", "operator": "equal", "operand": false }
+        { "key": "num_selections", "operator": "equal", "operand": 1 },
+        { "key": "overlay_visible", "operator": "equal", "operand": false },
+        { "key": "panel_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["tab"], "command": "indent", "context":

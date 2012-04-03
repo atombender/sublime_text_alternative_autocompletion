@@ -48,15 +48,11 @@ To map to the tab key it gets a bit more complex to preserve indentation behavio
     { "keys": ["tab"], "command": "alternative_autocomplete", "args": {"default": "\t"}, "context":
       [
         { "key": "num_selections", "operator": "equal", "operand": 1 },
-        { "key": "overlay_visible", "operator": "equal", "operand": false },
-        { "key": "panel_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["shift+tab"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
       [
         { "key": "num_selections", "operator": "equal", "operand": 1 },
-        { "key": "overlay_visible", "operator": "equal", "operand": false },
-        { "key": "panel_visible", "operator": "equal", "operand": false }
       ]
     },
     { "keys": ["tab"], "command": "indent", "context":

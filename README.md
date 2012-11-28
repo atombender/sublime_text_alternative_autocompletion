@@ -18,53 +18,31 @@ Compatibility
 
 Tested with Sublime Text 2 build 2095 and later. The key bindings described below will work for build 2134 (and onwards, presumably).
 
-Installation
-------------
+Installation using Package Control (simplest)
+---------------------------------------------
+
+1. Install the [Package Control plugin](http://wbond.net/sublime_packages/package_control) unless you don't have it already.
+
+2. Open Package Controll and choose "Install Package".
+
+3. Select `alternative_autocompletion`.
+
+Manual installation
+-------------------
 
 Drop the entire folder in Sublime's `Packages` folder. You can do this using `git clone` thus:
 
     $ cd .../Packages  # Whatever the location is
+
     $ git clone git://github.com/alexstaubo/sublime_text_alternative_autocompletion.git
 
-To map to the escape key, like TextMate:
-
-    { "keys": ["escape"], "command": "alternative_autocomplete", "context":
-      [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
-        { "key": "overlay_visible", "operator": "equal", "operand": false },
-        { "key": "panel_visible", "operator": "equal", "operand": false }
-      ]
-    },
-    { "keys": ["shift+escape"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
-      [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
-        { "key": "overlay_visible", "operator": "equal", "operand": false },
-        { "key": "panel_visible", "operator": "equal", "operand": false }
-      ]
-    },
 
 To map to the tab key it gets a bit more complex to preserve indentation behaviour:
 
-    { "keys": ["tab"], "command": "alternative_autocomplete", "args": {"default": "\t"}, "context":
-      [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
-      ]
-    },
-    { "keys": ["shift+tab"], "command": "alternative_autocomplete", "args": {"cycle": "previous"}, "context":
-      [
-        { "key": "num_selections", "operator": "equal", "operand": 1 },
-      ]
-    },
-    { "keys": ["tab"], "command": "indent", "context":
-      [
-        { "key": "text", "operator": "regex_contains", "operand": "\n" }
-      ]
-    },
-    { "keys": ["shift+tab"], "command": "unindent", "context":
-      [
-        { "key": "text", "operator": "regex_contains", "operand": "\n" }
-      ]
-    },
+Keyboard mappings
+-----------------
+
+The default keyboard settings use the **Escape** key for autocompletion. To use the **tab** key instead you will need to add some complex custom keyboard mappings (Preferences -> "Key Bindings - User"). Copy the bindings found in `Tabs.sublime-keymap`.
 
 Limitations
 -----------

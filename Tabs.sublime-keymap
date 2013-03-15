@@ -1,0 +1,32 @@
+[
+  { 
+    "keys": ["tab"],
+    "command": "alternative_autocomplete",
+    "args": {"default": "\t"},
+    "context": [
+      { "key": "num_selections", "operator": "equal", "operand": 1 }
+    ]
+  },
+  {
+    "keys": ["shift+tab"],
+    "command": "alternative_autocomplete",
+    "args": {"cycle": "previous"},
+    "context": [
+      { "key": "num_selections", "operator": "equal", "operand": 1 }
+    ]
+  },
+  { 
+    "keys": ["tab"],
+    "command": "indent",
+    "context": [
+      { "key": "text", "operator": "regex_contains", "operand": "\n" }
+    ]
+  },
+  { 
+    "keys": ["shift+tab"],
+    "command": "unindent",
+    "context": [
+      { "key": "text", "operator": "regex_contains", "operand": "\n" }
+    ]
+  }
+]

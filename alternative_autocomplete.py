@@ -53,8 +53,7 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
         if current_word in self.candidates:
           self.candidates.remove(current_word)
       if self.candidates:
-        edit = self.view.begin_edit()
-        self.view.erase(edit, sublime.Region(prefix_match.start(1), prefix_match.end(1)))
+        self.view.erase(self.edit, sublime.Region(prefix_match.start(1), prefix_match.end(1)))
         if self.previous_completion is None:
           completion = self.candidates[0]
         else:
@@ -63,8 +62,7 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
           else:
             direction = 1
           completion = self.candidates[(self.candidates.index(self.previous_completion) + direction) % len(self.candidates)]
-        self.view.insert(edit, prefix_match.start(1), completion)
-        self.view.end_edit(edit)
+        self.view.insert(self.edit, prefix_match.start(1), completion)
         self.previous_completion = completion
     else:
       if default and default != '':
@@ -78,7 +76,7 @@ class AlternativeAutocompleteCommand(sublime_plugin.TextCommand):
       if len(candidates) > 100:
         break
     if candidates:
-      candidates.sort(lambda a, b: cmp(a.distance, b.distance))
+      candidates.sort(key = lambda c: c.distance)
       candidates = [candidate.text for candidate in candidates]
     else:
       word_regex = re.compile(r'\b' + re.escape(prefix[0:1]) + r'[\w\d]+', re.M | re.U | re.I)

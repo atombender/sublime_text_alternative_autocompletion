@@ -5,7 +5,9 @@
     "context": [
       {"key": "num_selections", "operator": "equal", "operand": 1},
       {"key": "overlay_visible", "operator": "equal", "operand": false},
-      {"key": "panel_visible", "operator": "equal", "operand": false}
+      {"key": "panel_visible", "operator": "equal", "operand": false},
+      {"key": "has_prev_field", "operator": "equal", "operand": false},
+      {"key": "has_next_field", "operator": "equal", "operand": false}
     ]
   },
   {
@@ -15,7 +17,9 @@
     "context": [
       {"key": "num_selections", "operator": "equal", "operand": 1},
       {"key": "overlay_visible", "operator": "equal", "operand": false},
-      {"key": "panel_visible", "operator": "equal", "operand": false}
+      {"key": "panel_visible", "operator": "equal", "operand": false},
+      {"key": "has_prev_field", "operator": "equal", "operand": false},
+      {"key": "has_next_field", "operator": "equal", "operand": false}
     ]
   }
 ]

@@ -1,7 +1,7 @@
-Alternative autocompletion for Sublime Text 2
-=============================================
+Alternative autocompletion for Sublime Text
+===========================================
 
-This plugin adds an autocompletion command to Sublime Text 2 that acts similarly to TextMate:
+This plugin adds an autocompletion command to Sublime Text 2 and 3 that acts similarly to TextMate:
 
 * Hitting the autocomplete key will attempt to complete the current word by looking at similar words in the current document.
 
@@ -12,11 +12,6 @@ This plugin adds an autocompletion command to Sublime Text 2 that acts similarly
 * Candidate completions are selected prioritized by distance to the cursor.
 
 The plugin improves on TextMate in one respect: If no candidates are found, the plugin reverts to using a simple fuzzy, case-insensitive matching algorithm that is similar to Sublime's file/class matching algorithm. For example, typing `appc` might match `ApplicationController`.
-
-Compatibility
--------------
-
-Tested with Sublime Text 2 build 2095 and later. The key bindings described below will work for build 2134 (and onwards, presumably).
 
 Installation using Package Control (simplest)
 ---------------------------------------------
